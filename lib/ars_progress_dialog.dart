@@ -37,6 +37,9 @@ class ArsProgressDialog {
   /// Getter for _isShowing
   bool get isShowing => _isShowing;
 
+  /// Progress Indicator Color
+  final Color progressIndicatorColor;
+
   ArsProgressDialog(
     this.context, {
     this.backgroundColor = const Color(0x99000000),
@@ -46,6 +49,7 @@ class ArsProgressDialog {
     this.loadingWidget,
     this.useSafeArea = false,
     this.animationDuration = const Duration(milliseconds: 300),
+    this.progressIndicatorColor=Colors.blue
   }) {
     _initProgress();
   }
@@ -59,6 +63,7 @@ class ArsProgressDialog {
       onDismiss: onDismiss,
       loadingWidget: loadingWidget,
       animationDuration: animationDuration,
+      progressIndicatorColor: progressIndicatorColor,
     );
   }
 
@@ -107,6 +112,9 @@ class _ArsProgressDialogWidget extends StatelessWidget {
   /// Duration of blur and background color animation
   final Duration animationDuration;
 
+  /// Progress Indicator Color
+  final Color progressIndicatorColor;
+
   _ArsProgressDialogWidget({
     this.dismissable=true,
     this.onDismiss,
@@ -114,6 +122,7 @@ class _ArsProgressDialogWidget extends StatelessWidget {
     this.loadingWidget,
     this.blur=0,
     this.animationDuration = const Duration(milliseconds: 300),
+    this.progressIndicatorColor=Colors.blue
   }) {
     loadingWidget = loadingWidget ??
         Container(
@@ -126,6 +135,7 @@ class _ArsProgressDialogWidget extends StatelessWidget {
             color: Colors.white,
           ),
           child: CircularProgressIndicator(
+            color: progressIndicatorColor,
             strokeWidth: 2,
           ),
         );

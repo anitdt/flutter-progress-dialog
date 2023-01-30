@@ -31,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _progressDialog = ArsProgressDialog(context,
         blur: 2,
         backgroundColor: Color(0x33000000),
+        progressIndicatorColor: Colors.red,
         animationDuration: Duration(milliseconds: 500));
 
     ArsProgressDialog customProgressDialog = ArsProgressDialog(context,
